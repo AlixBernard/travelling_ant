@@ -26,4 +26,4 @@ cargo run
 
 ## Notes
 
-A more time efficient implementation can be achieved using an array instead of a hashmap as the `grid`. Using an array however requires to bound the range of `Cell` than can be reached which may not be space efficient.
+A more time efficient implementation can be achieved using an array instead of a hashmap as the `grid`. Using an array however requires to bound the range of cells that can be reached which may not be space efficient.
