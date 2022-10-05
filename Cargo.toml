@@ -1,0 +1,10 @@
+[package]
+name = "travelling_ant"
+version = "0.3.0"
+edition = "2021"
+authors = ["Alix Bernard"]
+description = "Short program allowing to solve the travelling ant problem."
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
