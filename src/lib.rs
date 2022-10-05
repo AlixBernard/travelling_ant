@@ -6,6 +6,8 @@
 //! travelling ant problem.
 
 use std::io;
+use std::str::FromStr;
+use std::num::ParseIntError;
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct Cell {
@@ -36,6 +38,23 @@ impl Cell {
 
     pub fn sum_of_digits(&self) -> u32 {
         self.sum_of_digits_x() + self.sum_of_digits_y()
+    }
+}
+
+impl FromStr for Cell {
+    type Err = ParseIntError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let (x, y) = s
+            .strip_prefix('(')
+            .and_then(|s| s.strip_suffix(')'))
+            .and_then(|s| s.split_once(','))
+            .unwrap();
+
+        let x_fromstr = x.parse::<u32>()?;
+        let y_fromstr = y.parse::<u32>()?;
+
+        Ok(Cell { x: x_fromstr, y: y_fromstr })
     }
 }
 
