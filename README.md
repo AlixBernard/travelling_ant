@@ -9,11 +9,12 @@ An ant is on a grid where each cell of the grid has coordinates (x, y). The ant 
 - right (x + 1)
 - down (y - 1)
 - up (y + 1)
+
 Moreover the ant can only move to cells of which the sum of the digits of the coordinates is less than or equal to `max_sum` (defined by the user), examples:
 - (x, y) = (1000, 1207), `max_sum` = 1 + 1 + 2 + 7 = 11
 - (x, y) = (901, 1321), `max_sum` = 9 + 1 + 1 + 3 + 2 + 1 = 17
 
-How far can the ant travel, _i.e,_ how many different cells can it reach, considering it starts from `source_cell` (defined by the user).
+How far can the ant travel, _i.e._, how many different cells can it reach, considering it starts from `source_cell` (defined by the user).
 
 ## Notes
 
