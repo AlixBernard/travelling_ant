@@ -16,6 +16,14 @@ Moreover the ant can only move to cells of which the sum of the digits of the co
 
 How far can the ant travel, _i.e._ how many different cells can it reach, considering it starts from `source_cell` (defined by the user).
 
+## How to run
+
+Using `git` and `cargo`:
+```bash
+git clone https://github.com/AlixBernard/travelling_ant && cd travelling_ant
+cargo run
+```
+
 ## Notes
 
 A more time efficient implementation can be achieved using an array instead of a hashmap as the `grid`. Using an array however requires to bound the range of `Cell` than can be reached which may not be space efficient.
