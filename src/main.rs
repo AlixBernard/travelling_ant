@@ -1,12 +1,36 @@
 use std::collections::{HashMap, VecDeque};
 
+use clap::Parser;
+
 use travelling_ant::{Cell, CellState};
 
-fn main() {
-    let max_sum: u32 = travelling_ant::get_max_sum();
-    let source_cell = travelling_ant::get_source_cell();
-    let mut grid: HashMap<Cell, CellState> = HashMap::new();
 
+/// Program to solve the travelling ant problem
+#[derive(Parser, Debug)]
+#[command(author, version, about, long_about = None)]
+struct Args {
+   /// Value of the maximum sum to not exceed
+   #[arg(short, long)]
+   max_sum: Option<u32>,
+
+   /// Coordinates of the source cell
+   #[arg(short, long, value_parser = clap::value_parser!(Cell))]
+   source_cell: Option<Cell>,
+}
+
+
+fn main() {
+    let args = Args::parse();
+    let max_sum: u32 = match args.max_sum {
+        Some(num) => num,
+        None => travelling_ant::get_max_sum(),
+    };
+    let source_cell: Cell = match args.source_cell {
+        Some(cell) => cell,
+        None => travelling_ant::get_source_cell(),
+    };
+
+    let mut grid: HashMap<Cell, CellState> = HashMap::new();
     let mut cells2check: VecDeque<Cell> = VecDeque::from([source_cell]);
     grid.insert(source_cell, CellState::Attainable);
     let mut counter: u32 = 1;
