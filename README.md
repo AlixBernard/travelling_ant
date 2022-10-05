@@ -14,7 +14,7 @@ Moreover the ant can only move to cells of which the sum of the digits of the co
 - (x, y) = (1000, 1207), `max_sum` = 1 + 1 + 2 + 7 = 11
 - (x, y) = (901, 1321), `max_sum` = 9 + 1 + 1 + 3 + 2 + 1 = 17
 
-How far can the ant travel, _i.e._, how many different cells can it reach, considering it starts from `source_cell` (defined by the user).
+How far can the ant travel, _i.e._ how many different cells can it reach, considering it starts from `source_cell` (defined by the user).
 
 ## Notes
 
