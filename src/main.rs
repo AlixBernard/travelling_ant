@@ -4,20 +4,18 @@ use clap::Parser;
 
 use travelling_ant::{Cell, CellState};
 
-
 /// Program to solve the travelling ant problem
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
-   /// Value of the maximum sum to not exceed
-   #[arg(short, long)]
-   max_sum: Option<u32>,
+    /// Value of the maximum sum to not exceed
+    #[arg(short, long)]
+    max_sum: Option<u32>,
 
-   /// Coordinates of the source cell
-   #[arg(short, long, value_parser = clap::value_parser!(Cell))]
-   source_cell: Option<Cell>,
+    /// Coordinates of the source cell
+    #[arg(short, long, value_parser = clap::value_parser!(Cell))]
+    source_cell: Option<Cell>,
 }
-
 
 fn main() {
     let args = Args::parse();

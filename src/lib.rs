@@ -6,8 +6,8 @@
 //! travelling ant problem.
 
 use std::io;
-use std::str::FromStr;
 use std::num::ParseIntError;
+use std::str::FromStr;
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct Cell {
@@ -45,19 +45,20 @@ impl FromStr for Cell {
     type Err = ParseIntError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (x, y) = match s
-            .trim_matches(|c| c == '(' || c == ')')
-            .split_once(',') {
-                Some((a, b)) => (a, b),
-                None => ("a", "b"),
-                // ! If None return a value that will fail later,
-                // ! it should however return an error directly
-            };
+        let (x, y) = match s.trim_matches(|c| c == '(' || c == ')').split_once(',') {
+            Some((a, b)) => (a, b),
+            None => ("a", "b"),
+            // ! If None return a value that will fail later,
+            // ! it should however return an error directly
+        };
 
         let x_fromstr = x.parse::<u32>()?;
         let y_fromstr = y.parse::<u32>()?;
 
-        Ok(Self { x: x_fromstr, y: y_fromstr })
+        Ok(Self {
+            x: x_fromstr,
+            y: y_fromstr,
+        })
     }
 }
 
@@ -88,7 +89,6 @@ pub fn get_max_sum() -> u32 {
 
 /// Prompts from the user the coordinates x and y of the source cell.
 pub fn get_source_cell() -> Cell {
-
     loop {
         println!("Input source cell coordinates as `(x,y)`:");
 
@@ -102,7 +102,7 @@ pub fn get_source_cell() -> Cell {
             Ok(cell) => cell,
             Err(_) => continue,
         };
-        
+
         return cell;
     }
 }
